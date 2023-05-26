@@ -41,8 +41,9 @@ function direction() {
 }
 
 function eatTail(head, arr) {
-    for (let i = 0; i < arr.lenght; i++) {
-       if(head.x == arr[i].x && head.y == arr[i].y) 
+    for (let i = 0; i < arr.length; i++) {
+        if(head.x == arr[i].x && head.y == arr[i].y)
+       clearInterval(game);    
     }
 }
 
@@ -88,6 +89,8 @@ function drawGame() {
         x: snakeX,
         y: snakeY
     };
+
+    eatTail(newHead, snake);
 
     snake.unshift(newHead);
 
