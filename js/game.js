@@ -40,13 +40,19 @@ function direction() {
         dir = "down";
 }
 
+function eatTail(head, arr) {
+    for (let i = 0; i < arr.lenght; i++) {
+       if(head.x == arr[i].x && head.y == arr[i].y) 
+    }
+}
+
 function drawGame() {
     ctx.drawImage(ground, 0, 0);
 
     ctx.drawImage(foodImg, food.x, food.y);
 
     for(let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = "green";
+        ctx.fillStyle = i == 0 ? "green" : "red";
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
     }
 
@@ -67,6 +73,10 @@ function drawGame() {
         snake.pop(); 
     }
 
+    if (snakeX < box || snakeX > box * 17
+        || snakeY < 3 * box || snakeY > box * 17)
+        clearInterval(game);
+
    
 
     if (dir == "left") snakeX -= box;
@@ -82,6 +92,8 @@ function drawGame() {
     snake.unshift(newHead);
 
 }
+
+
 
 
 
